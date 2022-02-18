@@ -1,0 +1,26 @@
+@import "../variables.css";
+
+@keyframes alertAnimation {
+  0% {
+  }
+  35% {
+    transform: translateY(-7px);
+  }
+  100% {
+  }
+}
+
+.message_alert {
+  background-color: #ff6128;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  font-size: 11px;
+}
+.nav__btn .message_alert {
+  animation: alertAnimation 1s ease-in-out infinite forwards;
+}

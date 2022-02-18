@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <title>ChattingRoom - KoKoa Clone</title>
+    <style></style>
+  </head>
+
+  <body id="chat-screen">
+    <div class="status_bar chatting-room__color">
+      <div class="status_bar__column">
+        <span>No Service</span>
+        <i class="fa-solid fa-wifi"></i>
+      </div>
+      <div class="status_bar__column">
+        <span>18:43</span>
+      </div>
+      <div class="status_bar__column">
+        <span>110%</span>
+        <i class="fa-solid fa-battery-full fa-xl"></i>
+        <i class="fa-solid fa-bolt"></i>
+      </div>
+    </div>
+
+    <header class="alt-header chatting-room__color">
+      <div class="alt-header__column">
+        <a href="chats.html">
+          <i class="fa-solid fa-angle-left"></i>
+        </a>
+      </div>
+      <div class="alt-header__column">
+        <span class="alt-header__title">Hanuel</span>
+      </div>
+      <div class="alt-header__column">
+        <div class="alt-header__icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-screen main-chat">
+      <div class="chat__timestamp">Friday, Feb 18, 2022</div>
+
+      <div class="message-row">
+        <img class="message__sender" src="images/haneul.jpeg" alt="" />
+        <div class="message__content">
+          <span class="message__sender-name">Haneul</span>
+          <div class="message-subcontent">
+            <span class="message__bubble">Hi! do u plan on this week?!</span>
+            <span class="message__time">21:27</span>
+          </div>
+        </div>
+      </div>
+      <div class="message-row message__answer">
+        <div class="message-subcontent">
+          <span class="message__bubble">
+            <pre>Nope😀 !!! What about go cafe?</pre>
+          </span>
+          <span class="message__time">21:27</span>
+        </div>
+      </div>
+    </main>
+
+    <form class="reply">
+      <div class="reply__column">
+        <i class="fa-regular fa-square-plus fa-xl"></i>
+      </div>
+      <div class="reply__column">
+        <input type="text" placeholder="메세지 입력..." />
+        <i class="fa-regular fa-face-grin-squint fa-xl"></i>
+        <button>
+          <i class="fa-solid fa-arrow-up fa-xl"></i>
+        </button>
+      </div>
+    </form>
+
+    <script
+      src="https://kit.fontawesome.com/fdc3244e74.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

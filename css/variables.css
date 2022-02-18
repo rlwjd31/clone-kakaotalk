@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Source+Sans+Pro:ital,wght@1,300&display=swap");
+
+:root {
+  --main-font-family: "Open Sans", sans-serif;
+  --yellow: #fae100;
+  --horizontal-space: 20px;
+  --border-bottom-color: rgba(0, 0, 0, 0.2);
+}

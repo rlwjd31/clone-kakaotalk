@@ -1,0 +1,377 @@
+                                    <CSS>
+
+
+CSS --> Cascading Style Sheet의 줄임말!
+> 브라우저는 css를 위에서부터 차례대로 읽는다.
+> 즉 Cascading Style Sheet는 브라우저가 위에서부터 아래로 차례대로 읽지만
+  맨 마지막에 읽은 style만 적용됨을 뜻한다.
+
+> css를 html에 적용할 수 있는 방법은 2가지 있다.
+    1) 같은 HTML 파일에 HTML코드와 css 코드를 놓는 방법
+        - <head> tag안에 <style> tag를 이용한다.
+    2) css와 html을 분리시킴 -> 더 좋은 방법!!! O
+        - link tag를 이용해서 분리된 css file을 가져온다.
+        - Ex) <link href="style.css" rel="stylesheet" />
+        - rel="stylesheet"라 함은 css file과 html document의 관계는 stylesheet라고 명시해주는 것이다.
+
+
+> css의 3가지 규칙
+    1) selector : 요소를 가리키는 것
+    2) curly bracket(중괄호) : {}를 이용한다.
+    3) {}안에 원하는 속성을 쓴다.
+
+🍏 css의 속성값으로 어떤 것이던 슬 수 있지만 없는 것을 쓰면 오류가 나지않고 적용이 되지 않는다.
+🍏 block -> inline, inline -> block으로 바꿔주는 것이 display속성이다.
+    Ex) change span element to block element
+    span{
+        display: block; //이처럼 display block을 하면 block으로 바뀐다.
+    }
+    // 하지만 div(height value == width value)에 display: inline;을 적용하게 되면, 
+    // div가 사라진다. why? -> **** inline 요소는 높이와 너비가 같을 수가 없다. ****
+
+
+
+- ABOUT INLINE & BLOCK -
+div(division) : 가장 기본적인 box
+-> block feature : box옆에 아무것도 오지 않는다. 행을 차지해 버림 Ex) div, header, main, section, footer, article, etc..
+-> inline(in the same line; 같은 줄에 올 수 있다.) feature : 옆에 올 수 있다. Ex) p, a, img, etc..
+> 대부분은 box들은 block이다. 따라서 block이 아닌 종류를 기억하는 것이 훨씬 편하다.
+> **** !!! inline은 높이는 존재하지 않고 너비만 존재한다. block은 너비와 높이가 있다.!!! ****
+> 또 block과 inline이 다른 점은 block은 margin, padding, border를 가진다는 점이다.
+- Only Block Element Have Below Features -
+
+
+🍏 collapsing margin
+> 두 박스의 경계가 서로 같다면 margin이 같이 적용된다.
+> 아래 예시를 보면 body의 마진은 20px이지만, 브라우저에서는 div의 margin으로 나타난다. 이것을 collapsing margin이라 한다.
+> Ex) 
+<style>
+      html {
+        background-color: aqua;
+      }
+      body {
+        background-color: blanchedalmond;
+        margin: 20px;
+      }
+      div {
+        background-color: tomato;
+        height: 150px;
+        width: 150px;
+        margin: 80px;
+      }
+</style>
+
+🍏 다른 종류의 border는 이쁘지 않기 때문에 거의 쓰지 않고 한 종류의 border를 많이 쓴다.
+🍏 code의 겹침을 최소화하자
+🍏 여러 개의 요소에 같은 style을 적용할 때는 class를 사용하고 정말 고유한 요소에만 적용하고 싶을 때 id를 사용하자
+
+
+🍏 inline-block
+> inline은 너비만 존재하고 높이가 존재하지 않기 때문에 inline-block으로 해결할 수 있다.
+> inline-block으로 하면 높이와 사방에 margin을 가질 수 있다.
+> 하지만, inline-block은 old하고 많은 문제가 존재(요소 사이에 공간이 존재하며 브라우저 확대/축소시 자유분방함)하므로 자주 쓰지 않는다.
+
+🍏 flexbox
+> flexbox는 box를 유연하게 배치하는데 유용하지만 지켜야할 규칙이 있다.
+> flexbox는 default로 flex-direction: row이며 main axis이다. 
+> flex-direction: column으로 바꾸면 주축이 교차축으로 바뀐다.
+    -> 이 때 justify-content : cross axis로 바뀐다.
+    -> 이 때 align-items : main axis로 바뀐다.
+> <지켜야할 규칙 3가지>
+> 1) 자식 엘리먼트에는 어떠한 것도 적지 말아야 한다. 부모 엘리먼트에만 명시해야 한다.
+    - Ex) 예를 들어 div자식이 3개가 있고 위에 body가 있으면 body에만 display: flex;를 명시해주면 된다.
+    - 이렇게 부모 요소에 flex를 지정해주면 div는 block의 속성은 그대로 유지하면서 옆에 위치하게 된다.
+    - 즉, body 요소가 자식들을 제어할 수 있게된다.
+    - 이렇게 하면 justify-content와 같은 속성으로 자식들을 제어할 수 있게 된다.
+    <justify-content>
+        - default value : flex-start
+        - justify-content는 main axis 즉, default로 메인축(수평)에 적용되는 것이다.
+        - why? default가 주축으로 움직인다고 하는 것은, 이 속성을 바꿀 수 있기 때문이다.
+    <align-items>
+        - default value : flex-start
+        - align-items는 cross axis 즉, default로 교차축(수직)에 적용되는 것이다.
+        - why? default가 주축으로 움직인다고 하는 것은, 이 속성을 바꿀 수 있기 때문이다.
+
+> 2) flex container는 main axis cross axis를 가지고 있다.
+> 3) flexbox는
+
+🍏 flex-wrap : browser크기를 줄이면 겹치는데 이것을 nowrap, wrap으로 지정하여 해결할 수 있다.
+
+🍏 vh(viewporth height)
+
+
+
+                                                <position>
+🍏 position
+-> position은 레이아웃보다는 위치를 아주 조금 바꾸고 싶을 때 이용한다.
+-> default value는 position: static;(레이아웃이 박스를 처음 위치하는 곳에 둔다.)
+
+1) position: fixed;
+    - height: 1000vh;로 많이 늘린다음에 scroll을 해보면 요소가 움직이지 않는 것을 알 수 있다.
+    - position: fixed;로 하면 top, bottom, left, right를 지정하면 원래 위치를 벗어나 브라우저영역을 기준으로 움직인다.
+
+2) position: relative;
+    - 기존 layout에서 위치를 조금 옮기고 싶을 때
+    - static인 상태를 기준으로 주어진 픽셀만큼 움직인다.
+
+3) position: absolute;
+    - absolute는 position: static 속성을 가지고 있지 않은 조상을 기준으로 움직입니다. 
+      만약 조상 중에 포지션이 relative, absolute, fixed인 태그가 없다면 가장 위의 태그(body)가 기준이 됩니다.
+      따라서, 하위 요소가 부모 영역에서 움직이게 하고 싶으면 부모 영역에 position: relative;를 지정하면 부모 영역에서 움직인다.
+    - 부모요소들에 static속성을 가지고 있지 않다면 body 영역에서 움직인다.
+    - absolute는 가장 가까운 relative 부모를 기준으로 이동시켜준다. 
+
+
+🍏 anchor tag를 통해 download를 실행할 수 있다.
+
+
+
+                                                <pseudo selector>
+
+🍏 pseudo selector : 세부적으로 엘리먼트 선택해주는 것이다.
+예를 들면, span다음에 바로오는 클래스를 선택한다던가 몇 번째 혹은 첫 번째 마지막번 재 엘리먼트를 선택하고 싶을 때 사용한다.
+
+Ex) div:last-child{background-color: teal;} -> 많은 div element들 중에 마지막 div만 배경색이 teal이 적용된다.
+
+span:nth-child(even 또는 2n이라고 할 수 있다.) {
+        background-color: teal;
+}
+# span이 여러개일 때 짝수번 째 엘리먼트에만 배경색을 적용한다.
+
+
+                                                <Combinators>
+
+1) div span{} : div밑에 모든 span들에게 적용된다.
+2) div > span{} : div밑 바로 밑 span들 모두에게 적용된다.
+<div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sequi
+        ipsam odio dolorem. <span>inside</span>
+    </p>
+    <span>hello</span>
+</div>
+위와 같이 되어있으면, p안에 span은 적용되지 않고(부모 엘리먼트 p가 있기 때문에) div바로 밑 span에게만 적용이 된다.
+
+3) p + span{} : 같은 형제에서 p바로 밑에 오는 span에게 적용된다. 즉, p다음에 바로 span이 와야한다. 다른 요소가 오면 적용이 되지 않는다.
+<div>
+    <p></p>
+    <span></span>
+</div>
+-> p와 span은 같은 div형제이며 span에게만 적용이 된다.
+
+4) p ~ span{} : 위에 3)같은 경우에는 바로 밑에요소가 와야 적용이 되지만 ~는 바로 밑에 오지 않아도 적용된다.
+<div>
+    <p></p>
+    <address></address>
+    <span></span>
+</div>
+
+
+                                                <attribute selector>
+
+🍏 attribute selector : pseudo selector의 일종으로 요소에 정의된 속성을 선택할 수 있게 해준다.
+input:optional {
+    border: 2px solid wheat;
+}
+// required를 가지고 있지 않은 엘리먼트에 적용한다.
+
+input[type="password"] {
+    border: 2px solid teal;
+}
+// input element중 type="password"인 요소에 적용한다.
+
+input:required {
+    border: 2px solid tomato;
+}
+// input element 중 required 속성을 가지고 있으면 적용한다.
+
+input[placeholder="username"] {
+    background-color: salmon;
+}
+// input element 중 placeholder="username"인 것에 적용한다.
+
+input[placeholder~="name"] {
+    background-color: brown;
+}
+// input element중에서 placeholder가 "name"을 포함하는 것에 모두 적용한다.
+// "~="는 포한한다 관계로 해석하면 된다.
+
+--> 더 알고 싶다면 mdn: attribute selector를 찾아보자!!
+--> ^:prefix $:postfix
+
+
+                                                <state>
+
+-> :active, :hover, :focus, :visited, :target과 같은 것들을 말한다.
+1) :active -> 마우스로 클릭을 계속 누를 때 발생한다.
+2) :hover -> 마우스가 대상 위에 있을 때 발생한다.
+3) :focus -> 마우스로 클릭하거나 키보드로 대상을 선택했을 때 발생한다.
+4) :visited -> anchor tag에 적용되며 방문했을 때 발생한다.
+5) :focus-within -> focused인 자식을 가진 부모 element상태를 말한다.
+응용 -> form:hover input:focus -> form에 마우스가 올려진 상태에서 input이 선택됐을 때 뜻함.
+
+🍏 다른 pseudo selector
+-> 다른 것은 : 1개만 썼는데 :를 1개만 쓰는 것은 해당 요소를 택하는 것이고,
+   :를 2개 쓰면 속성을 꾸밀 수 있다.
+1) ::placeholder : placeholder를 꾸민다.
+    -> input::placeholder{background-color:red;}
+    -> input element의 placeholder를 빨강으로 꾸민다.
+
+2) ::selection : 드래그를 했을 때 꾸밈을 적용할 수 있다.
+    p::selection{
+        color: white;
+        background-color: yellowgreen;
+    }
+    <p>hello!</p>
+    -> 마우스로 드래그할 때 배경색과 글자색이 바뀐다.
+
+3) ::first-letter : 문장의 첫 글자를 크게 한다.
+    p::first-letter{
+        background-color: teal;
+    }
+    <p>hello!</p>
+    -> hello!의 맨 앞글자 "h"가 큰 "h"로 변한다.
+
+
+
+🍏 document의 color를 아래와 같이 적용할 수 있다.
+> mdn: custom property를 찾아보자!
+> 이 때 기본 css와 다른 문법이 적용된다.
+> --main-color라는 변수에 색깔을 담는 것이다.(맨 앞에는 -2개 공백은 -1개로 채워줘야 한다.)
+> 아래와 같은 것을 custom property라고 한다.
+<선언>
+:root{
+    --main-color: #fcce00; # --main-color변수를 선언함.
+    --default-borde-color: 1px solid var(--main-color); #  --default-border변수를 선언함.
+}
+
+<적용>
+a{
+    color: var(--main-color);
+}
+🍏 .gitignore는 무시하고 push하고싶은 파일을 명시해주면 된다. Ex) image.png
+
+
+============================= ADVANCE CSS =============================
+> 예전에는 효과를 넣으려면 JS를 써야했지만 요새는 css로 대체할 수 있다.
+> Animation, Transition, Transformation
+
+1) Transition : 어떤 상태에서 다른 상태로 "변화"를 애미네이션으로 만드는 방법.
+    -> !!! transition은 state(like hove, active)가 없는 요소에 써야한다.
+    -> transition은 a{}a:hover{}에서 원래 엘리먼트 a에 명시해주어야 한다.
+    -> 형태 : transition: background-color 10s ease-in-out
+    -> Ex) transition: background-color 10s ease-in-out, color 5s ease-in-out;
+    -> Ex) 위에 코드를 transition: all 5s ease-in-out으로 바꾸면 hover일 때 모든 것에 변화를 준다.
+
+    ▶︎ !!! ease-in자리에 들어오는 값들은 browser에게 애니메이션이 어떻게 변할지 알려주는 것이다. !!!
+    ▶︎ https://matthewlein.com/tools/ceaser 에서 어떻게 이뤄지는지 알 수 있다.
+    ▶︎ transition: all 1s cubic-bezier(0.6, 0, 0.735, 0.045)
+    ▶︎ cubic-bezier는 어느 시점에서의 속도를 조절할 수 있다.
+    ▶︎ transition은 hover만이 아닌 active에서도 작동한다.
+> 가장 좋은 것은 mdn: transition으로 doc를 참고하는 것이 좋다.
+
+
+2) transformation : 어떤 상태에서 다른 상태로 "변형"을 시키기 위해서 쓴다.
+ img {
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+    border: 5px solid gray;
+    transition: all 3s ease-in-out;
+}
+img:hover {
+    transform: translateX(100px);
+    border-radius: 100%;
+}
+span {
+    z-index: 1;
+}
+> !!! transform은 다른 box element에 영향을 끼치지 않으며 자체요소의 padding, margin을 건들여서
+  위치를 바꾸는 것이 아니다. !!!
+  위의 코드를 바탕으로 실행해보면 이해가 가능하다.    
+> 가장 좋은 것은 mdn: transform으로 doc를 참고하는 것이 좋다.  
+
+
+3) Animation
+usage:
+-> @keyframes animation name{
+    from{
+        transform: rotateY(0)
+    }   
+    to{
+        transform: rotateY(180deg)
+    } 
+}
+-> 위와 같은 형식으로 짜여진다.
+
+
+                                     <BEM: Block Element Modifier>
+
+                                    
+-> BEM : BEM을 이용하면 더 읽기 쉬운 css를 가지게 된다.                                    
+-> !!! 또한 모든 element에 class를 명시하자고 약속함 !!!
+Ex)
+# block componenet
+.btn{}
+
+# block에 관련된 element
+# block element는 "__"(언더바) 2개로 명시한다.
+.btn__price{}
+
+# block의 style에 관함 -> modifier
+# modifier는 "--"(하이픈) 2개로 명시한다.
+.btn--orange{}
+
+# 만약 <a class="btn btn--big btn--orange">로 BEM 형식에 맞춰서 class를 지정해주면 
+# anchor tag는 버튼인데 큰 버튼이며 오렌지색을 갖는다는 것을 알 수 있다.
+
+
+🍏 Icon
+-> 아이콘을 만들던가 직접 구하던가.  
+-> svg : 픽셀이 없는 이미지 파일형식으로 수학으로만  구성된 형식이다.
+-> 1) hreoicons 사이트 이용. https://heroicons.dev/
+-> 2) font awesome 사이트 이용. https://fontawesome.com/
+
+
+
+
+🍏 스크립트는 항상 마지막에 있어야한다. body tab를 닫기 직전에 써야한다.
+
+
+
+
+⚽️ create first page
+<status_bar>
+처음에 flex와 space-between을 이용했는데 가운데 부분이 맞지 않아
+class="status_bar__column"모두 너비를 33%를 가지게 만든 후 조정했다.
+
+
+
+🍏 div와 같은 block element는 display: flex;로 정렬을 한다.
+🍏 span, h1, p와 같은 것은 text-align: center;와 같이 정렬할 수 있다.
+🍏 not을 사용하면 적용하지 않은 tag를 편하게 사용할 수 있다.
+🍏 color: inherit -> text color를 부모에게서 가져온다.
+   Ex) #login-form a{
+       text-align: center;
+       text-decoration: none;
+       color: inherit;
+   }
+   > anchor tag's color will be parent element(the element which id is "login-form")'s text color
+🍏 post VS get
+post : 백엔드 서버에 정보를 전송하는 방식이다.(서버가 없으면 불가능!!) -> when using username or password
+get : 이 방식은 보안에 취약하지만 서버가 없을 때는 get방식을 잉룡하여 코코아클론을 진행한다. -> url에 보여져도 상관없는 정보들을 전송할 때 쓴다.
+🍏 form tag로 값을 보내주기 위해서는 name속성을 지정해서 보낸다.
+   Ex) <input type="text" name="username" /> -> jjung을 입력하면 url에 ?username="jjung"으로 보내진다.
+🍏 <navigation bar>
+> 검색엔진 구글도 navigation을 찾아서 ul의 li 안에 있는 link를 가져오게끔 설정되어 있다.
+🍏 html 유용한 shortcut
+> nav tag안에 ul tag안에 li가 4개를 생성하고 싶으면 : nav>ul>li*4를 하면 된다.
+
+
+
+
+# vscode useful shortcut webpage -> i think this is good for learn shortcut in vscode
+https://zellwk.com/blog/useful-vscode-keyboard-shortcuts/
+
+# inline element에 align-items나 justify-content를 적용하면 block요소처럼 된다...?
+# > 확인해보기 높이를 가지는지와 margin값을 상하좌우로 다 가지는지 -> TODO LIST

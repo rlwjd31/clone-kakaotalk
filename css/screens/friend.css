@@ -1,0 +1,76 @@
+@import "../reset.css";
+@import "../components/nav-bar.css";
+@import "../components/screen-header.css";
+@import "../components/user-component.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Sans+Pro:ital,wght@1,300&display=swap");
+
+#friends-display-link {
+  display: block;
+  text-align: center;
+  color: #2e363e;
+  background-color: #f8f8f8;
+  padding: 15px 0;
+  font-size: 13px;
+  margin-bottom: 10px;
+  margin-top: 120px;
+}
+
+#friends-display-link > i {
+  margin-right: 3px;
+}
+
+#friends-display-link > i {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+#friends-display-link > i:last-child {
+  margin-left: 10px;
+}
+
+.friends-screen-main {
+  padding: 0 var(--horizontal-space);
+}
+
+.friends-screen__channel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, 0.4);
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+
+.friends-screen__channel-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 30%;
+}
+.friends-screen__channel {
+  border-top: 1px solid var(--border-bottom-color);
+}
+
+#splash-screen {
+  background-color: var(--yellow);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: hideSplashScreen 1s 0.3s ease-in-out forwards;
+}
+@keyframes hideSplashScreen {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    /* z-index: -1; */
+    visibility: hidden;
+  }
+}
+#splash-screen i {
+  font-size: 120px;
+}

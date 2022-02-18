@@ -1,0 +1,18 @@
+@import "screens/login.css";
+@import "screens/friend.css";
+@import "css/variables.css";
+@import "screens/chats.css";
+@import "screens/find.css";
+@import "screens/more.css";
+@import "screens/settings.css";
+@import "screens/chatting-room.css";
+
+body {
+  font-family: var(--main-font-family);
+  height: 1000vh;
+}
+
+.main-screen {
+  padding: 0 var(--horizontal-space);
+  margin-top: 130px;
+}

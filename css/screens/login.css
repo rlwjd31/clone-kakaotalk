@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300;1,900&family=Open+Sans&family=Source+Sans+Pro:ital,wght@1,300&display=swap");
+@import "../reset.css";
+
+/* Components */
+@import "../components/status-bar.css";
+
+/* Screens */
+@import "../variables.css";
+
+body {
+  font-family: var(--main-font-family);
+}
+
+.welcome-header {
+  margin: 90px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* text-align은 element들을 정렬하는 것이 아닌 text를 가운데ㅐ 정렬하는 것이다.*/
+}
+.welcome-header__title {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+.welcome-header__text {
+  color: rgba(0, 0, 0, 0.6);
+  width: 60%;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 30px;
+}
+#login-form input {
+  padding: 15px 0px;
+  border: none;
+  margin-bottom: 25px;
+  font-size: 18px;
+}
+#login-form input:not([type="submit"]) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease-in-out;
+}
+#login-form input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+#login-form input:focus {
+  border-bottom-color: var(--yellow);
+}
+#login-form input[type="submit"] {
+  background-color: var(--yellow);
+  cursor: pointer; /* cursor는 요소에 마우스를 올려놨을 대 마우스의 모형이 바뀐다 */
+  padding: 20px 0;
+  border-radius: 5px;
+}
+#login-form a {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+}
