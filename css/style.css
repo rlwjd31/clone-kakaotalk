@@ -6,6 +6,7 @@
 @import "screens/more.css";
 @import "screens/settings.css";
 @import "screens/chatting-room.css";
+@import "components/no-mobile.css";
 
 body {
   font-family: var(--main-font-family);
